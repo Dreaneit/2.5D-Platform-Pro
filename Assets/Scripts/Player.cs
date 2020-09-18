@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private float jumpHeight = 1.0f;
     [SerializeField]
     private float gravityValue = 9.81f;
+    private int coinsCollected;
 
     private CharacterController characterController;
     // Start is called before the first frame update
@@ -51,5 +52,15 @@ public class Player : MonoBehaviour
         playerVelocity.y = yVelocity;
 
         characterController.Move(playerVelocity * Time.deltaTime);
+    }
+
+    public void CollectCoin()
+    {
+        coinsCollected += 1;
+    }
+
+    public int GetCollectedCoins()
+    {
+        return coinsCollected;
     }
 }
